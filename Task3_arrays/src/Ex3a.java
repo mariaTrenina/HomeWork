@@ -1,0 +1,34 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ex3a {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the array size");
+        int n = scanner.nextInt();
+        System.out.println("Enter the lower range of the array");
+        int min = scanner.nextInt();
+        System.out.println("Enter the upper range of the array");
+        int max = scanner.nextInt();
+
+        int[] array = new int[n];
+        for (int i = 0; i < array.length; i++) {
+            Random random = new Random();
+            array[i] = random.nextInt(max+1-min) + min;
+        }
+
+        for (int a: array) {
+            System.out.print(a + " ");
+        }
+
+        int iMax = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > array[iMax]) {
+                iMax = i;
+            }
+        }
+        System.out.println();
+        System.out.println("Maximum element index: "+iMax+". Its value: "+array[iMax]);
+    }
+}
